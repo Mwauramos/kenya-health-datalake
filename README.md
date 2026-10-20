@@ -2,6 +2,8 @@
 
 An end-to-end ETL pipeline that extracts, validates, transforms, and loads Kenya county-level health data, with an interactive Streamlit dashboard for epidemiological analysis.
 
+Live Demo: https://kenya-health-datalake-hk3ymlytfnf9nmsypsasww.streamlit.app
+
 ## Features
 
 - Extract: Simulated Kenya county health data (DHIS2-style), ready for live API integration
