@@ -56,4 +56,4 @@ streamlit run app.py
 ## Author
 
 ZENIK.AI | Amos Mwaura  
-mwauramos.n@gmailcom
+mwauramos.n@gmail.com
