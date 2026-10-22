@@ -1,59 +1,67 @@
-# Kenya Health Data Lake and ETL Pipeline
+# Kenya Health Data Lake
 
-An end-to-end ETL pipeline that extracts, validates, transforms, and loads Kenya county-level health data, with an interactive Streamlit dashboard for epidemiological analysis.
+An end-to-end health data pipeline and analytics dashboard built on Kenya county-level health data. Designed to demonstrate production-oriented data engineering practices applied to African public health contexts.
 
-Live Demo: https://kenya-health-datalake-hk3ymlytfnf9nmsypsasww.streamlit.app
+**Live Demo**: https://kenya-health-datalake-hk3ymlytfnf9nmsypsasww.streamlit.app
+
+---
+
+## What This Does
+
+Kenya's health data is fragmented across county reports, MOH bulletins, and surveillance systems. This project builds a structured data lake on top of that data — extracting, validating, transforming, and loading county health indicators into a queryable format — and exposes the results through an interactive analytics dashboard.
+
+The dashboard enables county-level comparison of disease burden, risk classification, and health system indicators across all 47 Kenya counties.
+
+---
 
 ## Features
 
-- Extract: Simulated Kenya county health data (DHIS2-style), ready for live API integration
-- Validate: Schema, null, range, and record count checks on raw data
-- Transform: Computes malaria rates, cholera rates, maternal mortality ratio, under-5 mortality, ANC coverage, and a composite disease burden score
-- Load: CSV output with PostgreSQL support via SQLAlchemy
-- Orchestrate: Apache Airflow DAG with four sequential tasks (extract, validate, transform, load)
-- Dashboard: Streamlit app with KPI metrics, county risk classification, and CSV download
+- Automated ETL pipeline orchestrated with Apache Airflow
+- Data validation and quality checks at ingestion
+- County risk classification based on composite health indicators
+- Disease burden scoring across key conditions
+- Interactive Streamlit dashboard with county-level filtering and comparison
+
+---
 
 ## Tech Stack
 
-- Python 3.10
-- Apache Airflow
-- pandas
-- Great Expectations
-- SQLAlchemy
-- psycopg2
-- Streamlit
+- Python
+- Apache Airflow (pipeline orchestration)
+- pandas (data transformation)
+- SQLAlchemy (database layer)
+- Streamlit (dashboard)
 
-## Setup
-
-```bash
-conda create -n health-datalake python=3.10 --copy -y
-conda activate health-datalake
-pip install -r requirements.txt
-```
-
-Create a `.env` file in the root:
-
-
-## Run the Dashboard
-
-```bash
-streamlit run app.py
-```
+---
 
 ## Project Structure
 
-    kenya-health-datalake/
-    ├── app.py
-    ├── requirements.txt
-    ├── dags/
-    │   └── health_etl_dag.py
-    └── src/
-        ├── extract.py
-        ├── transform.py
-        ├── load.py
-        └── validate.py
+```
+kenya-health-datalake/
+├── dags/                  # Airflow DAG definitions
+├── pipeline/              # ETL scripts (extract, transform, load)
+├── data/                  # Raw and processed data
+├── dashboard/             # Streamlit app
+└── requirements.txt
+```
 
-## Author
+---
 
-ZENIK.AI | Amos Mwaura  
-mwauramos.n@gmail.com
+## Running Locally
+
+```bash
+git clone https://github.com/Mwauramos/kenya-health-datalake
+cd kenya-health-datalake
+pip install -r requirements.txt
+streamlit run dashboard/app.py
+```
+
+---
+
+## Context
+
+This project is part of the ZENIK.AI portfolio — a series of end-to-end healthcare AI and data engineering projects focused on African health systems.
+
+**Author**: Amos Mwaura  
+**Contact**: mwauramos.n@gmail.com  
+**Portfolio**: https://mwauramos.github.io/zenik-ai
